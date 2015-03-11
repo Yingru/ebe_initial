@@ -1,0 +1,15 @@
+!	here we define NBD in code (and paper) as
+!       NB_dist(N;mean,k) = Gamma(N+k)/(Gamma(N+1)Gamma(k)) * (mean/k)**N / (mean/k+1)**(N+k)
+!       NB_dist(N;mean,k) = Gamma(N+k)/(Gamma(N+1)Gamma(k)) * ((mean/k)/(mean/k+1))**N * (1/(mean/k+1))**k
+!       NB_dist(N;mean,k) = Gamma(N+k)/(Gamma(N+1)Gamma(k)) * ((mean/k)/(mean/k+1))**N * (1-(mean/k)/(mean/k+1))**k
+!	where mean is the mean value of N: mean = <N>, k is the slope factor
+!	the variance sigma^2 = mean*(1+mean/k), large k means smaller variance or steeper (softer) slope
+!       note in Wikipedia and mathworld
+!       NB_dist(X;p,k) = Gamma(X+k)/(Gamma(X+1)Gamma(k)) * p**X * (1-p)**k
+!       the relation is (first k=r is the same) (some times they use r instead of k): 
+!       p = (mean/k)/(1 + mean/k)
+!       mean = p*k/(1-p)
+!	sigma^2 = p*k/(1-p)**2 = mean*(1+mean/k)
+!	it is probably easier to use the mean value (and sigma value if possible) to represent the distribution, this is what is done in the code (and paper)
+!       the sum X=X1+X2 of two NBD randum variables (X1; p, k1) & (X2; p, k2) is also NBD with the same p
+!       value, but k_sum = k1+k2, that is: mean_sum = mean1 + mean_2
